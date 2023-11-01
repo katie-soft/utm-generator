@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTM generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 class="title">Генератор utm-меток</h1>
+      <form id="form" class="form">
+        <label for="utm-type" class="label">Выберите тип UTM: </label>
+        <label for="article">
+          <input name="utm-type" type="radio" value="article_callout" id="article_callout" />
+          В тексте
+        </label>
+
+        <label for="callout">
+          <input
+            name="utm-type"
+            type="radio"
+            value="product_callout"
+            id="product_callout"
+          />
+          В выноске
+        </label>
+
+        <label for="link" class="label"
+          >Введите ссылку, в которую нужно добавить utm-метку</label
+        >
+        <span class="label-example"
+          >Например, https://www.tinkoff.ru/business/account</span
+        >
+        <input type="text" name="link" class="input-text" />
+        <label for="article-url" class="label">Введите url статьи</label>
+        <span class="label-example">Например, kak-otkryt-kafe</span>
+        <input type="text" name="article-url" class="input-text"/>
+        <label for="product" class="label">Выберите продукт</label>
+        <select name="product" id="product">
+          <option value="account">Расчетный счет</option>
+          <option value="registration">Регистрация</option>
+          <option value="marketplace">
+            Онлайн-банк для продавцов маркетплейсов
+          </option>
+          <option value="accounting">Бухгалтерия для ИП</option>
+          <option value="compass">Компас</option>
+        </select>
+        <button type="submit" id="submit-button" class="button">Сгенерировать ссылку</button>
+      </form>
+      <div class="result-wrapper">
+      <span class="label">Результат:</span>
+      <input id="result" class="input-text"></input>
+      <button id="copy-button" class="button">Скопировать</button>
+      </div>
+    </div>
+    
+    <script src="./script.js"></script>
+  </body>
+</html>

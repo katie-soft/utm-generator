@@ -1,0 +1,67 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  margin: 15px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+}
+
+.input-text {
+  width: 50%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.label {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.label-example {
+  font-style: italic;
+  font-size: 14px;
+}
+
+.result-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.button {
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color:rgb(147, 127, 186);
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: rgb(141, 117, 188);
+}
