@@ -161,6 +161,11 @@ body {
   cursor: auto;
 }
 
+.button_inactive:hover {
+  color: currentColor;
+  background-color: #FFFFFF;
+}
+
 /* Result */
 
 .input-result {

@@ -21,7 +21,7 @@
           <label for="link" class="label">
             * Ссылка, куда добавить utm-метку
           </label>
-          <input type="text" name="link" class="input-text" />
+          <input type="text" name="link" class="input-text" required />
           <span class="label-example">
             Например, https://www.tinkoff.ru/business/account
           </span>
@@ -29,7 +29,7 @@
 
         <div class="block-wrapper">
           <label for="article-url" class="label">* URL статьи</label>
-          <input type="text" name="article-url" class="input-text" />
+          <input type="text" name="article-url" class="input-text" required />
           <span class="label-example">Например, kak-otkryt-kafe</span>
         </div>
 
@@ -77,7 +77,11 @@
         <div class="block-wrapper product-select">
           <label for="product" class="label">* Выберите продукт</label>
           <div class="custom-select input-text">
-            <select name="product" id="product" class="select-hidden">
+            <select
+              name="special-product"
+              id="special-product"
+              class="select-hidden"
+            >
               <option value="compass">Компас</option>
               <option value="compass1">Компас1</option>
               <option value="compass2">Компас2</option>
@@ -85,7 +89,7 @@
           </div>
         </div>
 
-        <button type="submit" id="submit-button" class="button">
+        <button type="submit" id="submit-button" class="button button_inactive">
           Сгенерировать ссылку
         </button>
       </form>
