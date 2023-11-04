@@ -4,60 +4,101 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UTM generator</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <div class="page-wrapper">
       <h1 class="title">Генератор utm-меток</h1>
       <form id="form" class="form">
-        <label for="utm-type" class="label">Выберите тип UTM: </label>
-        <label for="article">
-          <input name="utm-type" type="radio" value="article_callout" id="article_callout" />
-          В тексте
-        </label>
+        <div class="block-wrapper">
+          <label for="link" class="label">
+            * Ссылка, куда добавить utm-метку
+          </label>
+          <input type="text" name="link" class="input-text" />
+          <span class="label-example">
+            Например, https://www.tinkoff.ru/business/account
+          </span>
+        </div>
 
-        <label for="callout">
-          <input
-            name="utm-type"
-            type="radio"
-            value="product_callout"
-            id="product_callout"
-          />
-          В выноске
-        </label>
+        <div class="block-wrapper">
+          <label for="article-url" class="label">* URL статьи</label>
+          <input type="text" name="article-url" class="input-text" />
+          <span class="label-example">Например, kak-otkryt-kafe</span>
+        </div>
 
-        <label for="link" class="label"
-          >Введите ссылку, в которую нужно добавить utm-метку</label
-        >
-        <span class="label-example"
-          >Например, https://www.tinkoff.ru/business/account</span
-        >
-        <input type="text" name="link" class="input-text" />
-        <label for="article-url" class="label">Введите url статьи</label>
-        <span class="label-example">Например, kak-otkryt-kafe</span>
-        <input type="text" name="article-url" class="input-text"/>
-        <label for="product" class="label">Выберите продукт</label>
-        <select name="product" id="product">
-          <option value="account">Расчетный счет</option>
-          <option value="registration">Регистрация</option>
-          <option value="marketplace">
-            Онлайн-банк для продавцов маркетплейсов
-          </option>
-          <option value="accounting">Бухгалтерия для ИП</option>
-          <option value="compass">Компас</option>
-        </select>
-        <button type="submit" id="submit-button" class="button">Сгенерировать ссылку</button>
+        <div class="block-wrapper">
+          <label for="utm-type" class="label">* Расположение ссылки</label>
+          <label for="article_callout" class="radio-label">
+            <input
+              name="utm-type"
+              type="radio"
+              value="article_callout"
+              id="article_callout"
+              class="input-hidden"
+              checked
+            />
+            <span class="checkmark checkmark-radio"></span>
+            В тексте
+          </label>
+
+          <label for="product_callout" class="radio-label">
+            <input
+              name="utm-type"
+              type="radio"
+              value="product_callout"
+              id="product_callout"
+              class="input-hidden"
+            />
+            <span class="checkmark checkmark-radio"></span>
+            В выноске
+          </label>
+        </div>
+
+        <div class="block-wrapper">
+          <label for="product-type" class="radio-label">
+            <input
+              type="checkbox"
+              name="product-type"
+              id="product-type"
+              class="input-hidden"
+            />
+            <span class="checkmark checkmark-checkbox"></span>
+            Нестандартный продукт
+          </label>
+        </div>
+
+        <div class="block-wrapper product-select">
+          <label for="product" class="label">* Выберите продукт</label>
+          <div class="custom-select input-text">
+            <select name="product" id="product" class="select-hidden">
+              <option value="compass">Компас</option>
+              <option value="compass1">Компас1</option>
+              <option value="compass2">Компас2</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" id="submit-button" class="button">
+          Сгенерировать ссылку
+        </button>
       </form>
-      <div class="result-wrapper">
-      <span class="label">Результат:</span>
-      <input id="result" class="input-text"></input>
-      <button id="copy-button" class="button">Скопировать</button>
+
+      <div class="block-wrapper">
+        <span class="label">Результат:</span>
+        <div class="input-result input-text">
+          <input id="result" />
+          <button id="copy-button" class="copy-button"></button>
+        </div>
       </div>
     </div>
-    
+
     <script src="./script.js"></script>
   </body>
 </html>

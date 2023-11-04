@@ -36,3 +36,7 @@ function copy() {
 submitButton.addEventListener('click', handleFormSubmit);
 copyButton.addEventListener('click', copy);
 
+const customSelect = form.querySelector(".custom-select");
+customSelect.addEventListener('click', () => {
+  customSelect.classList.toggle("custom-select_opened");
+})
