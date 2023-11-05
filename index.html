@@ -11,7 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style/select.css" />
+    <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
     <div class="page-wrapper">
@@ -76,17 +77,10 @@
 
         <div class="block-wrapper product-select">
           <label for="product" class="label">* Выберите продукт</label>
-          <div class="custom-select input-text">
-            <select
-              name="special-product"
-              id="special-product"
-              class="select-hidden"
-            >
-              <option value="compass">Компас</option>
-              <option value="compass1">Компас1</option>
-              <option value="compass2">Компас2</option>
-            </select>
-          </div>
+          <div
+            id="select-wrapper"
+            class="select-wrapper_product input-text"
+          ></div>
         </div>
 
         <button type="submit" id="submit-button" class="button button_inactive">
@@ -103,6 +97,8 @@
       </div>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="./script/selectData.js"></script>
+    <script src="./script/select.js"></script>
+    <script src="./script/script.js"></script>
   </body>
 </html>

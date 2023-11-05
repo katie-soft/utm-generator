@@ -90,7 +90,7 @@ body {
 }
 
 .checkmark-checkbox::after {
-  content: url("./img/Tick.svg");
+  content: url("../img/Tick.svg");
   margin-left: 2px;
   display: none;
 }
@@ -118,28 +118,16 @@ body {
   display: flex;
 }
 
-.select-hidden {
-  display: none;
-}
-
-.custom-select {
-  height: 64px;
-  position: relative;
-  cursor: pointer;
-}
-
-.custom-select::after {
-  content: url("./img/Arrow-down.svg");
+.select-wrapper::after {
+  content: url("../img/Arrow-down.svg");
   position: absolute;
   top: 23px;
   right: 23px;
-  transition: all 0.3s;
 }
 
-.custom-select_opened::after {
-  transform: rotate(180deg);
+.select-wrapper_opened::after {
   top: 17px;
-}
+} 
 
 .button {
   background-color: #FFFFFF;
@@ -185,7 +173,7 @@ body {
 .copy-button {
   width: 40px;
   height: 40px;
-  background-image: url("./img/copy-icon.svg");
+  background-image: url("../img/copy-icon.svg");
   border: none;
   outline: none;
   background-color: #FFFFFF;
