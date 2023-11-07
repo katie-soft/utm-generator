@@ -35,6 +35,19 @@ function validateForm() {
   return isFormValid;
 }
 
+function checkFormIsFilled() {
+  const formElements = Array.from(form.elements);
+  for (let i = 0; i < formElements.length; i++) {
+    if (
+      formElements[i].type === 'text' && formElements[i].value.length || 
+      formElements[i].id === 'product-type' && formElements[i].checked) {
+      changeButtonState(clearButton, true);
+      break;
+    }
+    changeButtonState(clearButton, false);
+  }
+}
+
 function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -71,7 +84,10 @@ function handleFormSubmit(event) {
 }
 
 Array.from(form.elements).forEach(element => {
-  element.addEventListener('input', validateForm)
+  element.addEventListener('input', () => {
+    validateForm()
+    checkFormIsFilled()
+  } )
 });
 
 submitButton.addEventListener('click', handleFormSubmit);
