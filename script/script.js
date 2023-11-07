@@ -1,8 +1,9 @@
 /* Handle form */
 
 const form = document.querySelector("#form");
-const submitButton = form.querySelector("#submit-button");
 const requiredElements = form.querySelectorAll("[required]");
+const submitButton = form.querySelector("#submit-button");
+const clearButton = form.querySelector("#clear-button");
 
 function changeButtonState(button, isFormValid) {
   if (isFormValid) {
@@ -69,10 +70,11 @@ function handleFormSubmit(event) {
 }
 
 Array.from(form.elements).forEach(element => {
-  element.addEventListener('input', validateForm);
+  element.addEventListener('input', validateForm)
 });
 
 submitButton.addEventListener('click', handleFormSubmit);
+// form.addEventListener('reset', () => changeButtonState(clearButton, false));
 
 /* Copy result */
 

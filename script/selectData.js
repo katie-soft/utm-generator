@@ -3,7 +3,9 @@ const productSelectData = {
   name: 'special-product',
   id: 'special-product',
   classNames: [''],
-  placeholder: 'Выберите продукт',
+  placeholder: 'Например, Компас',
+  placeholderColor: '#CCCCCC',
+  mainColor: '#3D3D3D',
   eventName: 'setCustomSelectValue',
   options: [
     {
@@ -11,11 +13,11 @@ const productSelectData = {
       value: 'compass'
     },
     {
-      name: 'Компас1',
+      name: 'Компас 1',
       value: 'compass1'
     },
     {
-      name: 'Компас2',
+      name: 'Компас 2',
       value: 'compass2'
     },
   ]

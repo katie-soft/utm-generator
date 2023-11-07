@@ -22,16 +22,24 @@
           <label for="link" class="label">
             * Ссылка, куда добавить utm-метку
           </label>
-          <input type="text" name="link" class="input-text" required />
-          <span class="label-example">
-            Например, https://www.tinkoff.ru/business/account
-          </span>
+          <input
+            type="text"
+            name="link"
+            class="input-text"
+            placeholder="Например, https://www.tinkoff.ru/business/account"
+            required
+          />
         </div>
 
         <div class="block-wrapper">
           <label for="article-url" class="label">* URL статьи</label>
-          <input type="text" name="article-url" class="input-text" required />
-          <span class="label-example">Например, kak-otkryt-kafe</span>
+          <input
+            type="text"
+            name="article-url"
+            class="input-text"
+            placeholder="Например, kak-otkryt-kafe"
+            required
+          />
         </div>
 
         <div class="block-wrapper">
@@ -83,14 +91,23 @@
           ></div>
         </div>
 
-        <button type="submit" id="submit-button" class="button button_inactive">
-          Сгенерировать ссылку
-        </button>
+        <div class="button-wrapper">
+          <button
+            type="submit"
+            id="submit-button"
+            class="button button_inactive"
+          >
+            Сгенерировать ссылку
+          </button>
+          <button type="reset" id="clear-button" class="button">
+            Очистить форму
+          </button>
+        </div>
       </form>
 
       <div class="block-wrapper">
-        <span class="label">Результат:</span>
-        <div class="input-result input-text">
+        <span class="label">Результат</span>
+        <div class="input-result">
           <input id="result" />
           <button id="copy-button" class="copy-button"></button>
         </div>

@@ -33,6 +33,7 @@ class CustomSelect extends EventTarget {
 
     this.visibleSpan.id = `${this.data.id}-selected-value`;
     this.visibleSpan.innerText = this.data.placeholder || 'Select an option...';
+    this.visibleSpan.style.color = this.data.placeholderColor;
   }
 
   append() {
@@ -55,6 +56,7 @@ class CustomSelect extends EventTarget {
 
   setValue(newValue) {
     this.visibleSpan.innerText = newValue.innerText;
+    this.visibleSpan.style.color = this.data.mainColor;
     this.hiddenInput.value = newValue.dataset.value;
 
     this.dispatchEvent(this.customEvent);
