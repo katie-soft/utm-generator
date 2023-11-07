@@ -55,6 +55,17 @@ body {
   font-weight: 500;
 }
 
+.input-text:hover {
+  border-bottom-width: 4px;
+  margin-bottom: -2px;
+}
+
+.input-text:focus {
+  outline: none;
+  border-width: 3px;
+  margin-bottom: -1px;
+}
+
 .input-text::placeholder {
   color: var(--placeholder-color);
 }
@@ -74,6 +85,7 @@ body {
   align-items: center;
   gap: 10px;
   position: relative;
+  cursor: pointer;
 }
 
 .checkmark {
@@ -127,6 +139,10 @@ body {
 
 .form:has(#product-type:checked) .product-select {
   display: flex;
+}
+
+.select-wrapper {
+  transition: none;
 }
 
 .select-wrapper::after {
@@ -188,6 +204,14 @@ body {
 }
 
 /* Result */
+
+.block_result {
+  display: none;
+}
+
+.block_result_visible {
+  display: flex;
+}
 
 .input-result {
   color: var(--default-text-color);

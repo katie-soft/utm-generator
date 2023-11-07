@@ -38,11 +38,11 @@
   background-color: #FFFFFF;
   color: #3D3D3D;
   font-size: 18px;
-  padding: 10px;
+  padding: 16px;
   border: 1px solid #292929;
 }
 
 .custom-select__option:hover {
-  background-color: #292929;
-  color: #F5F5F5;
+  border-bottom-width: 3px;
+  margin-bottom: -1px;
 }

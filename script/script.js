@@ -66,6 +66,7 @@ function handleFormSubmit(event) {
     result = `${data.link}/?internal_source=tsecrets-${data['article-url']}-${data['utm-type']}-${data.product}`;
 
     resultField.value = result;
+    resultBlock.classList.add("block_result_visible");
     }
 }
 
@@ -74,12 +75,18 @@ Array.from(form.elements).forEach(element => {
 });
 
 submitButton.addEventListener('click', handleFormSubmit);
-// form.addEventListener('reset', () => changeButtonState(clearButton, false));
+form.addEventListener('reset', () => {
+  changeButtonState(clearButton, false);
+  if (resultBlock.classList.contains("block_result_visible")) {
+  resultBlock.classList.remove("block_result_visible");
+  }
+});
 
 /* Copy result */
 
 const copyButton = document.querySelector("#copy-button");
 const resultField = document.querySelector("#result");
+const resultBlock = document.querySelector(".block_result");
 
 function copy() {
   resultField.select();
