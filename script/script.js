@@ -1,15 +1,15 @@
 /* Handle form */
 
-const form = document.querySelector("#form");
-const requiredElements = form.querySelectorAll("[required]");
-const submitButton = form.querySelector("#submit-button");
-const clearButton = form.querySelector("#clear-button");
+const form = document.querySelector('#form');
+const requiredElements = form.querySelectorAll('[required]');
+const submitButton = form.querySelector('#submit-button');
+const clearButton = form.querySelector('#clear-button');
 
 function changeButtonState(button, isFormValid) {
   if (isFormValid) {
-    button.classList = "button";
+    button.classList = 'button';
   } else {
-    button.classList = "button button_inactive";
+    button.classList = 'button button_inactive';
   }
 }
 
@@ -28,7 +28,7 @@ function validateForm() {
   })
 
   if (form.querySelector('#product-type').checked) {
-    isFormValid = isFormValid && !!form.querySelector("#special-product").value.length;
+    isFormValid = isFormValid && !!form.querySelector('#special-product').value.length;
   }
  
   changeButtonState(submitButton, isFormValid);
@@ -52,7 +52,7 @@ function handleFormSubmit(event) {
   event.preventDefault();
 
   if (validateForm()) {
-    let result = "";
+    let result = '';
     const data = {};
 
     Array.from(form.elements).forEach((element) => {
@@ -61,25 +61,30 @@ function handleFormSubmit(event) {
       data[name] = value;
     })
 
-    if (data.link.at(-1) === '/') {
-      data.link = data.link.slice(0, -1);
+    data.link = trimFromSlash(data.link);
+
+    data['article-url'] = trimFromSlash(data['article-url']);
+    if (data['article-url'].includes('/')) {
+      data['article-url'] = getSlug(data['article-url'])[0];
     }
 
     const regex = /\-/gm;
-    data['article-url'] = data['article-url'].replace(regex, "_");
+    data['article-url'] = data['article-url'].replace(regex, '_');
 
-    data['utm-type'] = form.querySelector("input[type=radio]:checked").value;
+    data['utm-type'] = form.querySelector('input[type=radio]:checked').value;
 
     if (data['product-type']) {
       data.product = data['special-product'];
     } else {
-      data.product = data.link.split("/").slice(-1);
+      data.product = getSlug(data.link);
     }
+
+    console.log(data.product);
 
     result = `${data.link}/?internal_source=tsecrets-${data['article-url']}-${data['utm-type']}-${data.product}`;
 
     resultField.value = result;
-    resultBlock.classList.add("block_result_visible");
+    resultBlock.classList.add('block_result_visible');
     }
 }
 
@@ -93,20 +98,20 @@ Array.from(form.elements).forEach(element => {
 submitButton.addEventListener('click', handleFormSubmit);
 form.addEventListener('reset', () => {
   changeButtonState(clearButton, false);
-  if (resultBlock.classList.contains("block_result_visible")) {
-  resultBlock.classList.remove("block_result_visible");
+  if (resultBlock.classList.contains('block_result_visible')) {
+  resultBlock.classList.remove('block_result_visible');
   }
 });
 
 /* Copy result */
 
-const copyButton = document.querySelector("#copy-button");
-const resultField = document.querySelector("#result");
-const resultBlock = document.querySelector(".block_result");
+const copyButton = document.querySelector('#copy-button');
+const resultField = document.querySelector('#result');
+const resultBlock = document.querySelector('.block_result');
 
 function copy() {
   resultField.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
 }
 
 copyButton.addEventListener('click', copy);
@@ -116,3 +121,16 @@ copyButton.addEventListener('click', copy);
 const select = new CustomSelect(productSelectData);
 select.create();
 select.addEventListener(productSelectData.eventName, validateForm);
+
+/* Utils */
+
+function trimFromSlash(string) {
+  if (string.at(-1) === '/') {
+    return string.slice(0, -1);
+  }
+  return string;
+}
+
+function getSlug(link) {
+  return link.split('/').slice(-1);
+}
