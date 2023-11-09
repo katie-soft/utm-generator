@@ -18,7 +18,6 @@ body {
 
 .page-wrapper {
   margin: 40px 100px;
-  max-width: 600px;
 }
 
 .title {
@@ -31,6 +30,7 @@ body {
 /* Form */
 
 .form {
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -57,13 +57,13 @@ body {
 
 .input-text:hover {
   border-bottom-width: 4px;
-  margin-bottom: -2px;
+  padding-bottom: 14px;
 }
 
 .input-text:focus {
   outline: none;
   border-width: 3px;
-  margin-bottom: -1px;
+  padding-bottom: 15px;
 }
 
 .input-text::placeholder {
@@ -160,14 +160,16 @@ body {
 
 .button-wrapper {
   display: flex;
-  gap: 24px;
+  gap: 25px;
+  width: 100%;
 }
 
 .button {
+  width: 50%;
   background-color: transparent;
   font-size: 16px;
   font-family: 'Inter', sans-serif;
-  padding: 18px 33px;
+  padding: 18px;
   border: 2px solid var(--border-color);
   cursor: pointer;
   transition: all 0.3s;
@@ -199,7 +201,7 @@ body {
   background-color: transparent;
   position: absolute;
   top: 12px;
-  right: 16px;
+  left: 16px;
   cursor: pointer;
 }
 
@@ -223,8 +225,9 @@ body {
 
 .input-result input {
   background: transparent;
-  width: 92%;
+  width: 100%;
   height: 100%;
+  margin-left: 52px;
   border: none;
   outline: none;
   font-size: 18px;

@@ -44,5 +44,5 @@
 
 .custom-select__option:hover {
   border-bottom-width: 3px;
-  margin-bottom: -1px;
+  padding-bottom: 14px;
 }
