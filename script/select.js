@@ -51,7 +51,6 @@ class CustomSelect extends EventTarget {
   }
 
   toggleList() {
-    console.log(this.selectWrapper);
     this.selectWrapper.classList.toggle('select-wrapper_active');
     this.optionsList.classList.toggle('custom-select_active');
   }
