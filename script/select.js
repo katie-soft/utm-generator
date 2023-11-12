@@ -20,6 +20,10 @@ class CustomSelect extends EventTarget {
     this.hiddenInput.id = this.data.id;
     this.hiddenInput.name = this.data.name;
 
+    if (this.data.isRequired) {
+      this.hiddenInput.required = true;
+    }
+
     this.optionsList.className = 'custom-select';
     this.optionsList.id = `${this.data.id}-list`;
 
@@ -32,6 +36,10 @@ class CustomSelect extends EventTarget {
     })
 
     this.visibleSpan.id = `${this.data.id}-selected-value`;
+    this.setPlaceholder();
+  }
+
+  setPlaceholder() {
     this.visibleSpan.innerText = this.data.placeholder || 'Select an option...';
     this.visibleSpan.style.color = this.data.placeholderColor;
   }
@@ -43,6 +51,7 @@ class CustomSelect extends EventTarget {
   }
 
   toggleList() {
+    console.log(this.selectWrapper);
     this.selectWrapper.classList.toggle('select-wrapper_active');
     this.optionsList.classList.toggle('custom-select_active');
   }
@@ -66,6 +75,12 @@ class CustomSelect extends EventTarget {
     return this.hiddenInput.value;
   }
 
+  reset() {
+    this.closeList();
+    this.hiddenInput.value = '';
+    this.setPlaceholder();
+  }
+
   selectOption(event) {
     if (event.target.classList.contains('custom-select__option')) {
       this.setValue(event.target);
@@ -78,7 +93,7 @@ class CustomSelect extends EventTarget {
     this.optionsList.addEventListener('click', (event) => this.selectOption(event));
 
     document.addEventListener('click', (event) => {
-      if (!event.target.closest('.select-wrapper')) {
+      if (!event.target.closest(this.data.wrapperSelector)) {
         this.closeList();
       }
     })

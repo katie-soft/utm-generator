@@ -22,3 +22,16 @@ const productSelectData = {
     },
   ]
 }
+
+const categorySelectData = {
+  wrapperSelector: '#select-wrapper-category',
+  name: 'category',
+  id: 'category',
+  classNames: [''],
+  placeholder: 'Например, Личный опыт',
+  placeholderColor: '#CCCCCC',
+  mainColor: '#3D3D3D',
+  eventName: 'setCustomSelectValue',
+  options: [],
+  isRequired: true,
+}

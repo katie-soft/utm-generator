@@ -32,6 +32,8 @@
   left: -2px;
   width: calc(100% + 4px);
   border: 1px solid #292929;
+  max-height: 275px;
+  overflow-y: auto;
 }
 
 .custom-select__option {
