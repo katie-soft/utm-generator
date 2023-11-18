@@ -1,85 +1,133 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTM generator</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/select.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UTM generator</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./style/select.css" />
-  <link rel="stylesheet" href="./style/style.css" />
-</head>
+  <body>
+    <section class="content">
+      <h1 class="title">Генератор utm-меток</h1>
+      <form id="form" class="form">
+        <div class="block-wrapper">
+          <label for="link" class="label">
+            * Ссылка, куда добавить utm-метку
+          </label>
+          <input
+            type="text"
+            name="link"
+            class="input-text"
+            placeholder="Например, https://www.tinkoff.ru/business/account"
+            required
+          />
+        </div>
 
-<body>
-  <div class="page-wrapper">
-    <h1 class="title">Генератор utm-меток</h1>
-    <form id="form" class="form">
-      <div class="block-wrapper">
-        <label for="link" class="label">
-          * Ссылка, куда добавить utm-метку
-        </label>
-        <input type="text" name="link" class="input-text"
-          placeholder="Например, https://www.tinkoff.ru/business/account" required />
+        <div class="block-wrapper category">
+          <label for="category" class="label">* Выберите рубрику</label>
+          <div
+            id="select-wrapper-category"
+            class="select-wrapper_category input-text"
+          ></div>
+        </div>
+
+        <div class="block-wrapper">
+          <label for="utm-type" class="label">* Расположение ссылки</label>
+          <label for="article_callout" class="radio-label">
+            <input
+              name="utm-type"
+              type="radio"
+              value="article"
+              id="article_callout"
+              class="input-hidden"
+              checked
+            />
+            <span class="checkmark checkmark-radio"></span>
+            В тексте
+          </label>
+
+          <label for="product_callout" class="radio-label">
+            <input
+              name="utm-type"
+              type="radio"
+              value="callout"
+              id="product_callout"
+              class="input-hidden"
+            />
+            <span class="checkmark checkmark-radio"></span>
+            В выноске
+          </label>
+        </div>
+
+        <div class="block-wrapper">
+          <label for="product-type" class="radio-label">
+            <input
+              type="checkbox"
+              name="product-type"
+              id="product-type"
+              class="input-hidden"
+            />
+            <span class="checkmark checkmark-checkbox"></span>
+            Нестандартный продукт
+          </label>
+        </div>
+
+        <div class="block-wrapper product-select">
+          <label for="product" class="label">* Выберите продукт</label>
+          <div
+            id="select-wrapper"
+            class="select-wrapper_product input-text"
+          ></div>
+        </div>
+
+        <div class="button-wrapper">
+          <button
+            type="submit"
+            id="submit-button"
+            class="button button_inactive"
+          >
+            Сгенерировать ссылку
+          </button>
+          <button type="reset" id="clear-button" class="button button_inactive">
+            Очистить форму
+          </button>
+        </div>
+      </form>
+
+      <div class="block-wrapper block_result">
+        <span class="label">Результат</span>
+        <div class="input-result">
+          <button id="copy-button" class="copy-button"></button>
+          <input id="result" />
+        </div>
       </div>
+    </section>
 
-      <div class="block-wrapper category">
-        <label for="category" class="label">* Выберите рубрику</label>
-        <div id="select-wrapper-category" class="select-wrapper_category input-text"></div>
-      </div>
+    <footer class="footer">
+      <span>
+        © 2023. Сделано с &#10084; для
+        <a
+          href="https://secrets.tinkoff.ru/"
+          target="_blank"
+          class="footer__link"
+        >
+          Бизнес-Секретов
+        </a>
+      </span>
+      <span>Дизайн — Надя Дегтярева, Разработка — Катя Мягкая</span>
+    </footer>
 
-      <div class="block-wrapper">
-        <label for="utm-type" class="label">* Расположение ссылки</label>
-        <label for="article_callout" class="radio-label">
-          <input name="utm-type" type="radio" value="article" id="article_callout" class="input-hidden" checked />
-          <span class="checkmark checkmark-radio"></span>
-          В тексте
-        </label>
-
-        <label for="product_callout" class="radio-label">
-          <input name="utm-type" type="radio" value="callout" id="product_callout" class="input-hidden" />
-          <span class="checkmark checkmark-radio"></span>
-          В выноске
-        </label>
-      </div>
-
-      <div class="block-wrapper">
-        <label for="product-type" class="radio-label">
-          <input type="checkbox" name="product-type" id="product-type" class="input-hidden" />
-          <span class="checkmark checkmark-checkbox"></span>
-          Нестандартный продукт
-        </label>
-      </div>
-
-      <div class="block-wrapper product-select">
-        <label for="product" class="label">* Выберите продукт</label>
-        <div id="select-wrapper" class="select-wrapper_product input-text"></div>
-      </div>
-
-      <div class="button-wrapper">
-        <button type="submit" id="submit-button" class="button button_inactive">
-          Сгенерировать ссылку
-        </button>
-        <button type="reset" id="clear-button" class="button button_inactive">
-          Очистить форму
-        </button>
-      </div>
-    </form>
-
-    <div class="block-wrapper block_result">
-      <span class="label">Результат</span>
-      <div class="input-result">
-        <button id="copy-button" class="copy-button"></button>
-        <input id="result" />
-      </div>
-    </div>
-  </div>
-
-  <script src="./script/selectData.js"></script>
-  <script src="./script/select.js"></script>
-  <script src="./script/script.js"></script>
-</body>
-
+    <script src="./script/selectData.js"></script>
+    <script src="./script/select.js"></script>
+    <script src="./script/script.js"></script>
+  </body>
 </html>
