@@ -13,12 +13,12 @@ const productSelectData = {
       value: 'compass'
     },
     {
-      name: 'Компас 1',
-      value: 'compass1'
+      name: 'Изменения в ИП',
+      value: 'egrip_changes'
     },
     {
-      name: 'Компас 2',
-      value: 'compass2'
+      name: 'Другой',
+      value: 'other'
     },
   ]
 }
