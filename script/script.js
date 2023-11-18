@@ -121,39 +121,42 @@ select.addEventListener(productSelectData.eventName, validateForm);
 
 /* Fetch data from API & create category select*/
 
-let categorySelect;
-
-const getCategoryList = async () => {
-  try {
-    const res = await fetch('https://secrets-old.tj-bs.internal.ya-ruc1-dev1.dev.k8s.tcsbank.ru/wp-json/custom/v2/categories');
-    if (!res.ok) {
-      return;
-    }
-    const data = await res.json();
-    return data;
-  }
-  catch (e) {
-    console.error(e);
-    return;
-  }
-}
-
-getCategoryList().then(data => {
-  data.sort((a, b) => a.name.localeCompare(b.name)).forEach(category => {
-    const newItem = {};
-    newItem.name = category.name;
-    newItem.value = category.slug;
-    categorySelectData.options.push(newItem);
-  });
-
-  categorySelect = new CustomSelect(categorySelectData);
-  categorySelect.create();
-  categorySelect.addEventListener(productSelectData.eventName, () => {
-    validateForm();
-    checkFormIsFilled()
-  });
+categorySelect = new CustomSelect(categorySelectData);
+categorySelect.create();
+categorySelect.addEventListener(productSelectData.eventName, () => {
+  validateForm();
+  checkFormIsFilled()
 });
 
+// let categorySelect;
+// const getCategoryList = async () => {
+//   try {
+//     const res = await fetch('https://secrets-old.tj-bs.internal.ya-ruc1-dev1.dev.k8s.tcsbank.ru/wp-json/custom/v2/categories');
+//     if (!res.ok) {
+//       return;
+//     }
+//     const data = await res.json();
+//     return data;
+//   }
+//   catch (e) {
+//     console.error(e);
+//     return;
+//   }
+// }
+// getCategoryList().then(data => {
+//   data.sort((a, b) => a.name.localeCompare(b.name)).forEach(category => {
+//     const newItem = {};
+//     newItem.name = category.name;
+//     newItem.value = category.slug;
+//     categorySelectData.options.push(newItem);
+//   });
+//   categorySelect = new CustomSelect(categorySelectData);
+//   categorySelect.create();
+//   categorySelect.addEventListener(productSelectData.eventName, () => {
+//     validateForm();
+//     checkFormIsFilled()
+//   });
+// });
 
 /* Utils */
 
