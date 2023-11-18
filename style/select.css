@@ -36,6 +36,15 @@
   overflow-y: auto;
 }
 
+.custom-select_active::-webkit-scrollbar {
+  width: 4px;  
+  background-color: #FFFFFF;
+}
+
+.custom-select_active::-webkit-scrollbar-thumb {
+  background-color: #292929;
+}
+
 .custom-select__option {
   background-color: #FFFFFF;
   color: #3D3D3D;

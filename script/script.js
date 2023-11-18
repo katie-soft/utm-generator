@@ -93,6 +93,7 @@ Array.from(form.elements).forEach(element => {
 submitButton.addEventListener('click', handleFormSubmit);
 form.addEventListener('reset', () => {
   changeButtonState(clearButton, false);
+  changeButtonState(submitButton, false);
   select.reset();
   categorySelect.reset();
   if (resultBlock.classList.contains('block_result_visible')) {
