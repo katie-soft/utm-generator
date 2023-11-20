@@ -6,6 +6,13 @@
   position: relative;
   user-select: none;
   transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.select-wrapper span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
 }
 
 .select-wrapper::after {
@@ -34,6 +41,7 @@
   border: 1px solid #292929;
   max-height: 275px;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .custom-select_active::-webkit-scrollbar {
