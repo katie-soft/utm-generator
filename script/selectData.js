@@ -32,7 +32,11 @@ const categorySelectData = {
   placeholderColor: '#CCCCCC',
   mainColor: '#3D3D3D',
   eventName: 'setCustomSelectValue',
-  options: [
+  options: [],
+  isRequired: true,
+}
+
+const categories = [
     { name: 'Безопасность бизнеса', value: 'bezopasnost-biznesa' },
     { name: 'Бизнес с нуля', value: 'biznes-s-nulya' },
     { name: 'Бизнес-ланч', value: 'biznes-lanch' },
@@ -71,6 +75,4 @@ const categorySelectData = {
     { name: 'Справочник предпринимателя', value: 'glossarij' },
     { name: 'Трансляции', value: 'translyatsii' },
     { name: 'Чек-листы', value: 'chek-listy' }
-  ],
-  isRequired: true,
-}
+]
