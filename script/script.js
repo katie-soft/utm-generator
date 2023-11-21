@@ -16,7 +16,7 @@ select.addEventListener(productSelectData.eventName, validateForm);
 let categorySelect;
 const getCategoryList = async () => {
   try {
-    const res = await fetch('https://secrets.tinkoff.ru/wp-json/custom/v2/categories');
+    const res = await fetch('https://secrets-old.tinkoff.ru/wp-json/custom/v2/categories');
     if (!res.ok) {
       return;
     }
@@ -38,7 +38,7 @@ getCategoryList().then(data => {
       categorySelectData.options.push(newItem);
     })
   } else {
-      categorySelectData.options = categories;
+    categorySelectData.options = categories;
   }
   categorySelect = new CustomSelect(categorySelectData);
   categorySelect.create();
