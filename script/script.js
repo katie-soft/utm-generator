@@ -119,6 +119,8 @@ function handleFormSubmit(event) {
 
     data.category = replaceHyphen(data.category);
 
+    data.slug = replaceHyphen(trimFromSlash(data.slug));
+
     data['utm-type'] = form.querySelector('input[type=radio]:checked').value;
 
     if (data['product-type']) {
@@ -127,7 +129,7 @@ function handleFormSubmit(event) {
       data.product = replaceHyphen(getSlug(data.link));
     }
 
-    result = `${data.link}/?internal_source=tsecrets-${data.category}-${data['utm-type']}-${data.product}`;
+    result = `${data.link}/?internal_source=tsecrets-${data.category}-${data.slug}-${data['utm-type']}-${data.product}`;
 
     resultField.value = result;
     resultBlock.classList.add('block_result_visible');
@@ -170,7 +172,10 @@ copyButton.addEventListener('click', copy);
 
 function trimFromSlash(string) {
   if (string.at(-1) === '/') {
-    return string.slice(0, -1);
+    string = string.slice(0, -1);
+  }
+  if (string[0] === '/') {
+    string = string.slice(1);
   }
   return string;
 }
