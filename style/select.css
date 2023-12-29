@@ -80,8 +80,10 @@
 }
 
 .custom-select__filter:hover,
-.custom-select:has(>.custom-select__option:hover) ~ .custom-select__filter {
-  padding-bottom: 14px;
+.select-wrapper:hover .custom-select__filter,
+.custom-select:has(>.custom-select__option:hover) ~ .custom-select__filter,
+.custom-select:has(>.custom-select__error:hover) ~.custom-select__filter {
+  padding-bottom: 12px;
 }
 
 .custom-select__filter_active {
