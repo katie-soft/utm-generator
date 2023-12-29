@@ -75,6 +75,10 @@ body {
   color: var(--placeholder-color);
 }
 
+.input-text_filter {
+  border: none;
+}
+
 .label {
   font-size: 16px;
   font-weight: 500;
@@ -89,6 +93,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  width: fit-content;
   position: relative;
   cursor: pointer;
 }

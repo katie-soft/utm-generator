@@ -65,3 +65,30 @@
   border-bottom-width: 3px;
   padding-bottom: 14px;
 }
+
+.custom-select__error {
+  background-color: #FFFFFF;
+  color: #7A7A7A;
+  font-size: 18px;
+  padding: 12px;
+  border: 1px solid #292929;
+  cursor: auto;
+}
+
+.custom-select__filter {
+  display: none;
+}
+
+.custom-select__filter:hover,
+.custom-select:has(>.custom-select__option:hover) ~ .custom-select__filter {
+  padding-bottom: 14px;
+}
+
+.custom-select__filter_active {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}

@@ -6,13 +6,6 @@ select.addEventListener(productSelectData.eventName, validateForm);
 
 /* Fetch data from API & create category select*/
 
-// categorySelect = new CustomSelect(categorySelectData);
-// categorySelect.create();
-// categorySelect.addEventListener(productSelectData.eventName, () => {
-//   validateForm();
-//   checkFormIsFilled()
-// });
-
 let categorySelect;
 const getCategoryList = async () => {
   try {
