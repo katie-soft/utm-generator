@@ -112,7 +112,11 @@ function handleFormSubmit(event) {
 
     data.category = replaceHyphen(data.category);
 
-    data.slug = replaceHyphen(trimFromSlash(data.slug));
+    if (trimFromSlash(data.slug).includes('/')) {
+      data.slug = replaceHyphen(getSlug(trimFromSlash(data.slug)));
+    } else {
+      data.slug = replaceHyphen(trimFromSlash(data.slug));
+    }
 
     data['utm-type'] = form.querySelector('input[type=radio]:checked').value;
 
