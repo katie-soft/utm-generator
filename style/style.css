@@ -31,9 +31,59 @@ body {
   margin: 0 0 32px;
 }
 
+.content-wrapper {
+  display: flex;
+  gap: 68px;
+}
+
+/* Hint */
+
+.hint {
+  max-width: 50%;
+}
+
+.hint__header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin: 27px 0 27px 183px;
+}
+
+.hint__button {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: 2px solid var(--border-color);
+  padding: 2px 0 0;
+  cursor: pointer;
+}
+
+.hint__button img {
+  width: 32px;
+  height: 32px;
+}
+
+.hint__title {
+  margin: 8px 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--default-text-color);
+}
+
+.hint__text {
+  display: none;
+  font-size: 18px;
+  color: var(--default-text-color);
+}
+
+.hint_open .hint__text {
+  display: block;
+}
+
 /* Form */
 
 .form {
+  min-width: 500px;
   max-width: 600px;
   display: flex;
   flex-direction: column;
@@ -90,6 +140,11 @@ body {
 }
 
 /* Custom radio & checkbox */
+
+.radio-wrapper {
+  display: flex;
+  gap: 170px;
+}
 
 .radio-label {
   color: var(--default-text-color);

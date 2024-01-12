@@ -18,103 +18,156 @@
   <body>
     <section class="content">
       <h1 class="title">Генератор <nobr>utm-меток</nobr></h1>
-      <form id="form" class="form">
-        <div class="block-wrapper">
-          <label for="link" class="label">
-            * Ссылка, куда добавить utm-метку
-          </label>
-          <input
-            type="text"
-            name="link"
-            class="input-text"
-            placeholder="Например, https://www.tinkoff.ru/business/account"
-            required
-          />
-        </div>
-
-        <div class="block-wrapper">
-          <label for="slug" class="label">
-            * Ссылка на статью или ее слаг
-          </label>
-          <input
-            type="text"
-            name="slug"
-            class="input-text"
-            placeholder="Например, kak-otkryt-kafe"
-            required
-          />
-        </div>
-
-        <div class="block-wrapper category">
-          <label for="category" class="label">* Выберите рубрику</label>
-          <div
-            id="select-wrapper-category"
-            class="select-wrapper_category input-text"
-          ></div>
-        </div>
-
-        <div class="block-wrapper">
-          <label for="utm-type" class="label">* Расположение ссылки</label>
-          <label for="product_callout" class="radio-label">
+      <div class="content-wrapper">
+        <form id="form" class="form">
+          <div class="block-wrapper">
+            <label for="link" class="label">
+              * Ссылка, куда добавить utm-метку
+            </label>
             <input
-              name="utm-type"
-              type="radio"
-              value="callout"
-              id="product_callout"
-              class="input-hidden"
-              checked
+              type="text"
+              name="link"
+              class="input-text"
+              placeholder="Например, https://www.tinkoff.ru/business/account"
+              required
             />
-            <span class="checkmark checkmark-radio"></span>
-            В выноске
-          </label>
+          </div>
 
-          <label for="article_callout" class="radio-label">
+          <div class="block-wrapper">
+            <label for="slug" class="label">
+              * Ссылка на статью или ее слаг
+            </label>
             <input
-              name="utm-type"
-              type="radio"
-              value="article"
-              id="article_callout"
-              class="input-hidden"
+              type="text"
+              name="slug"
+              class="input-text"
+              placeholder="Например, kak-otkryt-kafe"
+              required
             />
-            <span class="checkmark checkmark-radio"></span>
-            В тексте
-          </label>
-        </div>
+          </div>
 
-        <div class="block-wrapper">
-          <label for="product-type" class="radio-label">
-            <input
-              type="checkbox"
-              name="product-type"
-              id="product-type"
-              class="input-hidden"
-            />
-            <span class="checkmark checkmark-checkbox"></span>
-            Нестандартный продукт (ссылка начинается не с tinkoff.ru)
-          </label>
-        </div>
+          <div class="block-wrapper category">
+            <label for="category" class="label">* Выберите рубрику</label>
+            <div
+              id="select-wrapper-category"
+              class="select-wrapper_category input-text"
+            ></div>
+          </div>
 
-        <div class="block-wrapper product-select">
-          <label for="product" class="label">* Выберите продукт</label>
-          <div
-            id="select-wrapper"
-            class="select-wrapper_product input-text"
-          ></div>
-        </div>
+          <div class="block-wrapper">
+            <label for="utm-type" class="label">* Расположение ссылки</label>
+            <div class="radio-wrapper">
+              <label for="product_callout" class="radio-label">
+                <input
+                  name="utm-type"
+                  type="radio"
+                  value="callout"
+                  id="product_callout"
+                  class="input-hidden"
+                  checked
+                />
+                <span class="checkmark checkmark-radio"></span>
+                В выноске
+              </label>
 
-        <div class="button-wrapper">
-          <button
-            type="submit"
-            id="submit-button"
-            class="button button_inactive"
-          >
-            Сгенерировать ссылку
-          </button>
-          <button type="reset" id="clear-button" class="button button_inactive">
-            Очистить форму
-          </button>
+              <label for="article_callout" class="radio-label">
+                <input
+                  name="utm-type"
+                  type="radio"
+                  value="article"
+                  id="article_callout"
+                  class="input-hidden"
+                />
+                <span class="checkmark checkmark-radio"></span>
+                В тексте
+              </label>
+            </div>
+          </div>
+
+          <div class="block-wrapper">
+            <label for="product-type" class="radio-label">
+              <input
+                type="checkbox"
+                name="product-type"
+                id="product-type"
+                class="input-hidden"
+              />
+              <span class="checkmark checkmark-checkbox"></span>
+              Нестандартный продукт (ссылка начинается не с tinkoff.ru)
+            </label>
+          </div>
+
+          <div class="block-wrapper product-select">
+            <label for="product" class="label">* Выберите продукт</label>
+            <div
+              id="select-wrapper"
+              class="select-wrapper_product input-text"
+            ></div>
+          </div>
+
+          <div class="button-wrapper">
+            <button
+              type="submit"
+              id="submit-button"
+              class="button button_inactive"
+            >
+              Сгенерировать ссылку
+            </button>
+            <button
+              type="reset"
+              id="clear-button"
+              class="button button_inactive"
+            >
+              Очистить форму
+            </button>
+          </div>
+        </form>
+
+        <div class="hint" id="hint">
+          <div class="hint__header">
+            <button class="hint__button">
+              <img src="./img/question-icon.svg" alt="?" />
+            </button>
+            <h2 class="hint__title">Как пользоваться генератором?</h2>
+          </div>
+
+          <div class="hint__text">
+            <p>
+              Генератор ссылок поможет вам подготовить ссылку на продукт
+              Тинькофф Бизнес c UTM-меткой для использования внутри статьи. Для
+              этого:
+            </p>
+            <p>1. Заполните поля:</p>
+            <p>
+              <strong>Ссылка, куда добавить utm-метку:</strong> ссылка на
+              продукт Тинькофф Бизнес. Обычно выглядит так:
+              www.tinkoff.ru/business/название_продукта
+            </p>
+            <p>
+              <strong>Ссылка на статью или ее слаг:</strong> можно ввести либо
+              полную ссылку на статью (например,
+              https://secrets.tinkoff.ru/lichnyj-opyt/kak-sozdat-soobshchestvo/),
+              либо только последнюю часть адреса (kak-sozdat-soobshchestvo)
+            </p>
+            <p>
+              <strong>Рубрика статьи:</strong> выберите рубрику статьи из
+              выпадающего списка. Доступен встроенный поиск.
+            </p>
+            <p>
+              <strong>Расположение ссылки:</strong> если ссылка будет находиться
+              в выноске, выберите первый вариант, если в тексте статьи, то
+              второй.
+            </p>
+            <p>
+              <strong>Нестандартный продукт:</strong> если продуктовая ссылка
+              начинается не с www.tinkoff.ru, то поставьте галочку Нестандартный
+              продукт и выберите название продукта из выпадающего списка.
+            </p>
+            <p>2. Нажмите кнопку Сгенерировать ссылку</p>
+            <p>3. Скопируйте готовую ссылку из поля Результат</p>
+          </div>
         </div>
-      </form>
+      </div>
 
       <div class="block-wrapper block_result">
         <span class="label">Результат</span>

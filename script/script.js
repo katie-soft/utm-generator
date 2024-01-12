@@ -185,3 +185,23 @@ function replaceHyphen(string) {
   const regex = /\-/gm;
   return string.replace(regex, '_');
 }
+
+/* Hint */
+
+const hint = document.querySelector('#hint');
+const hintButton = hint.querySelector('.hint__button');
+const hintIcon = hintButton.querySelector('img');
+const hintText = hint.querySelector('.hint__text');
+
+hintButton.addEventListener('click', toggleHint);
+
+function toggleHint() {
+  if (hint.classList.contains('hint_open')) {
+    hintIcon.src='./img/question-icon.svg';
+    hint.classList.remove('hint_open');
+    return
+  } else {
+    hint.classList.add('hint_open');
+    hintIcon.src='./img/close-icon.svg';
+  }
+}
