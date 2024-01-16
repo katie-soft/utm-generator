@@ -1,28 +1,3 @@
-const productSelectData = {
-  wrapperSelector: '#select-wrapper',
-  name: 'special-product',
-  id: 'special-product',
-  classNames: [''],
-  placeholder: 'Например, Компас',
-  placeholderColor: '#CCCCCC',
-  mainColor: '#3D3D3D',
-  eventName: 'setCustomSelectValue',
-  options: [
-    {
-      name: 'Компас',
-      value: 'compass'
-    },
-    {
-      name: 'Изменения в ИП',
-      value: 'egrip_changes'
-    },
-    {
-      name: 'Другой',
-      value: 'other'
-    },
-  ]
-}
-
 const categorySelectData = {
   wrapperSelector: '#select-wrapper-category',
   name: 'category',
@@ -74,5 +49,6 @@ const categories = [
     { name: 'Сотрудники', value: 'sotrudniki' },
     { name: 'Справочник предпринимателя', value: 'glossarij' },
     { name: 'Трансляции', value: 'translyatsii' },
+    { name: 'Тренды', value: 'trendy' },
     { name: 'Чек-листы', value: 'chek-listy' }
 ]

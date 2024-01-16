@@ -1,9 +1,3 @@
-/* Custom select */
-
-const select = new CustomSelect(productSelectData);
-select.create();
-select.addEventListener(productSelectData.eventName, validateForm);
-
 /* Fetch data from API & create category select*/
 
 let categorySelect;
@@ -35,7 +29,7 @@ getCategoryList().then(data => {
   }
   categorySelect = new CustomSelect(categorySelectData);
   categorySelect.create();
-  categorySelect.addEventListener(productSelectData.eventName, () => {
+  categorySelect.addEventListener(categorySelectData.eventName, () => {
     validateForm();
     checkFormIsFilled()
   });
@@ -44,7 +38,6 @@ getCategoryList().then(data => {
 /* Handle form */
 
 const form = document.querySelector('#form');
-
 const submitButton = form.querySelector('#submit-button');
 const clearButton = form.querySelector('#clear-button');
 
@@ -72,10 +65,6 @@ function validateForm() {
     }
   }
 
-  if (form.querySelector('#product-type').checked) {
-    isFormValid = isFormValid && !!form.querySelector('#special-product').value.length;
-  }
-
   changeButtonState(submitButton, isFormValid);
   return isFormValid;
 }
@@ -86,8 +75,7 @@ function checkFormIsFilled() {
   for (let i = 0; i < formElements.length; i++) {
     if (
       formElements[i].type === 'text' && formElements[i].value.length ||
-      formElements[i].type === 'hidden' && formElements[i].value.length ||
-      formElements[i].id === 'product-type' && formElements[i].checked) {
+      formElements[i].type === 'hidden' && formElements[i].value.length) {
       changeButtonState(clearButton, true);
       break;
     }
@@ -103,14 +91,12 @@ function handleFormSubmit(event) {
     const data = {};
 
     Array.from(form.elements).forEach((element) => {
-      const { name, type } = element;
-      const value = type === 'checkbox' ? element.checked : element.value.trim();
-      data[name] = value;
+      if (element.name) {
+        data[element.name] = element.value.trim();
+      }
     })
 
     data.link = trimFromSlash(data.link);
-
-    data.category = replaceHyphen(data.category);
 
     if (trimFromSlash(data.slug).includes('/')) {
       data.slug = replaceHyphen(getSlug(trimFromSlash(data.slug)));
@@ -118,13 +104,15 @@ function handleFormSubmit(event) {
       data.slug = replaceHyphen(trimFromSlash(data.slug));
     }
 
+    data.category = replaceHyphen(data.category);
+
     data['utm-type'] = form.querySelector('input[type=radio]:checked').value;
 
-    if (data['product-type']) {
-      data.product = data['special-product'];
-    } else {
+    if (data.link.includes('www.tinkoff')) {
       data.product = replaceHyphen(getSlug(data.link));
-    }
+    } else {
+      data.product = replaceHyphen(getProductName(data.link));
+    }    
 
     result = `${data.link}/?internal_source=tsecrets-${data.category}-${data.slug}-${data['utm-type']}-${data.product}`;
 
@@ -145,7 +133,6 @@ submitButton.addEventListener('click', handleFormSubmit);
 form.addEventListener('reset', () => {
   changeButtonState(clearButton, false);
   changeButtonState(submitButton, false);
-  select.reset();
   categorySelect.reset();
   if (resultBlock.classList.contains('block_result_visible')) {
     resultBlock.classList.remove('block_result_visible');
@@ -164,27 +151,6 @@ function copy() {
 }
 
 copyButton.addEventListener('click', copy);
-
-/* Utils */
-
-function trimFromSlash(string) {
-  if (string.at(-1) === '/') {
-    string = string.slice(0, -1);
-  }
-  if (string[0] === '/') {
-    string = string.slice(1);
-  }
-  return string;
-}
-
-function getSlug(link) {
-  return link.split('/').slice(-1).toString();
-}
-
-function replaceHyphen(string) {
-  const regex = /\-/gm;
-  return string.replace(regex, '_');
-}
 
 /* Hint */
 
@@ -205,3 +171,33 @@ function toggleHint() {
     hintIcon.src='./img/close-icon.svg';
   }
 }
+
+/* Utils */
+
+function trimFromSlash(string) {
+  if (string.at(-1) === '/') {
+    string = string.slice(0, -1);
+  }
+  if (string[0] === '/') {
+    string = string.slice(1);
+  }
+  return string;
+}
+
+function getSlug(link) {
+  return link.split('/').slice(-1).toString();
+}
+
+function getProductName(link) {
+  let result = link.trim();
+  if (result.includes('https://')) {
+    result = result.slice(8);
+  }
+  return result.split('.')[0].toString();
+}
+
+function replaceHyphen(string) {
+  const regex = /\-/gm;
+  return string.replace(regex, '_');
+}
+
