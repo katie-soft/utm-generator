@@ -22,6 +22,7 @@ body {
 
 .content {
   margin: 40px 100px 0 40px;
+  max-width: 1166px;
 }
 
 .title {
@@ -46,7 +47,7 @@ body {
   display: flex;
   gap: 16px;
   align-items: center;
-  margin: 27px 0 27px 183px;
+  margin: 12px 0 27px 183px;
 }
 
 .hint__button {
@@ -68,22 +69,32 @@ body {
   font-size: 18px;
   font-weight: 400;
   color: var(--default-text-color);
+  cursor: pointer;
 }
 
 .hint__text {
   display: none;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--default-text-color);
+  max-width: 525px;
 }
 
 .hint_open .hint__text {
   display: block;
 }
 
+.hint__list {
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 /* Form */
 
 .form {
-  min-width: 500px;
+  min-width: 573px;
   max-width: 600px;
   display: flex;
   flex-direction: column;
@@ -98,6 +109,10 @@ body {
   flex-direction: column;
   gap: 8px;
   width: 100%;
+}
+
+.block-wrapper_utm-type {
+  gap: 16px;
 }
 
 .input-text {
@@ -307,10 +322,12 @@ body {
 /*Footer*/
 
 .footer {
+  max-width: 1166px;
+  margin-left: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 40px;
+  padding: 25px 0;
   color: var(--label-color); 
 }
 

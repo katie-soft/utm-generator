@@ -155,11 +155,12 @@ copyButton.addEventListener('click', copy);
 /* Hint */
 
 const hint = document.querySelector('#hint');
+const hintHeader = hint.querySelector('.hint__header');
 const hintButton = hint.querySelector('.hint__button');
 const hintIcon = hintButton.querySelector('img');
 const hintText = hint.querySelector('.hint__text');
 
-hintButton.addEventListener('click', toggleHint);
+hintHeader.addEventListener('click', toggleHint);
 
 function toggleHint() {
   if (hint.classList.contains('hint_open')) {

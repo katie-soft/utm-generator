@@ -17,88 +17,90 @@
 
   <body>
     <section class="content">
-      <h1 class="title">Генератор <nobr>utm-меток</nobr></h1>
       <div class="content-wrapper">
-        <form id="form" class="form">
-          <div class="block-wrapper">
-            <label for="link" class="label"> * Ссылка на продукт </label>
-            <input
-              type="text"
-              name="link"
-              class="input-text"
-              placeholder="Например, https://www.tinkoff.ru/business/account"
-              required
-            />
-          </div>
-
-          <div class="block-wrapper">
-            <label for="slug" class="label">
-              * Ссылка на статью или ее слаг
-            </label>
-            <input
-              type="text"
-              name="slug"
-              class="input-text"
-              placeholder="Например, kak-otkryt-kafe"
-              required
-            />
-          </div>
-
-          <div class="block-wrapper category">
-            <label for="category" class="label">* Рубрика статьи</label>
-            <div
-              id="select-wrapper-category"
-              class="select-wrapper_category input-text"
-            ></div>
-          </div>
-
-          <div class="block-wrapper">
-            <label for="utm-type" class="label">* Расположение ссылки</label>
-            <div class="radio-wrapper">
-              <label for="product_callout" class="radio-label">
-                <input
-                  name="utm-type"
-                  type="radio"
-                  value="callout"
-                  id="product_callout"
-                  class="input-hidden"
-                  checked
-                />
-                <span class="checkmark checkmark-radio"></span>
-                В выноске
-              </label>
-
-              <label for="article_callout" class="radio-label">
-                <input
-                  name="utm-type"
-                  type="radio"
-                  value="article"
-                  id="article_callout"
-                  class="input-hidden"
-                />
-                <span class="checkmark checkmark-radio"></span>
-                В тексте
-              </label>
+        <div>
+          <h1 class="title">Генератор <nobr>utm-меток</nobr></h1>
+          <form id="form" class="form">
+            <div class="block-wrapper">
+              <label for="link" class="label"> * Ссылка на продукт </label>
+              <input
+                type="text"
+                name="link"
+                class="input-text"
+                placeholder="Например, https://www.tinkoff.ru/business/account"
+                required
+              />
             </div>
-          </div>
 
-          <div class="button-wrapper">
-            <button
-              type="submit"
-              id="submit-button"
-              class="button button_inactive"
-            >
-              Сгенерировать ссылку
-            </button>
-            <button
-              type="reset"
-              id="clear-button"
-              class="button button_inactive"
-            >
-              Очистить форму
-            </button>
-          </div>
-        </form>
+            <div class="block-wrapper">
+              <label for="slug" class="label">
+                * Ссылка на статью или ее слаг
+              </label>
+              <input
+                type="text"
+                name="slug"
+                class="input-text"
+                placeholder="Например, kak-otkryt-kafe"
+                required
+              />
+            </div>
+
+            <div class="block-wrapper category">
+              <label for="category" class="label">* Рубрика статьи</label>
+              <div
+                id="select-wrapper-category"
+                class="select-wrapper_category input-text"
+              ></div>
+            </div>
+
+            <div class="block-wrapper block-wrapper_utm-type">
+              <label for="utm-type" class="label">* Расположение ссылки</label>
+              <div class="radio-wrapper">
+                <label for="product_callout" class="radio-label">
+                  <input
+                    name="utm-type"
+                    type="radio"
+                    value="callout"
+                    id="product_callout"
+                    class="input-hidden"
+                    checked
+                  />
+                  <span class="checkmark checkmark-radio"></span>
+                  В выноске
+                </label>
+
+                <label for="article_callout" class="radio-label">
+                  <input
+                    name="utm-type"
+                    type="radio"
+                    value="article"
+                    id="article_callout"
+                    class="input-hidden"
+                  />
+                  <span class="checkmark checkmark-radio"></span>
+                  В тексте
+                </label>
+              </div>
+            </div>
+
+            <div class="button-wrapper">
+              <button
+                type="submit"
+                id="submit-button"
+                class="button button_inactive"
+              >
+                Сгенерировать ссылку
+              </button>
+              <button
+                type="reset"
+                id="clear-button"
+                class="button button_inactive"
+              >
+                Очистить форму
+              </button>
+            </div>
+          </form>
+        </div>
 
         <div class="hint" id="hint">
           <div class="hint__header">
@@ -109,39 +111,33 @@
           </div>
 
           <div class="hint__text">
-            <p>
-              Генератор ссылок поможет вам подготовить ссылку на продукт
-              Тинькофф Бизнес c UTM-меткой для использования внутри статьи. Для
-              этого:
-            </p>
-            <p>1. Заполните поля:</p>
-            <p>
-              <strong>Ссылка, куда добавить utm-метку:</strong> ссылка на
-              продукт Тинькофф Бизнес. Обычно выглядит так:
-              www.tinkoff.ru/business/название_продукта
-            </p>
-            <p>
-              <strong>Ссылка на статью или ее слаг:</strong> можно ввести либо
-              полную ссылку на статью (например,
-              https://secrets.tinkoff.ru/lichnyj-opyt/kak-sozdat-soobshchestvo/),
-              либо только последнюю часть адреса (kak-sozdat-soobshchestvo)
-            </p>
-            <p>
-              <strong>Рубрика статьи:</strong> выберите рубрику статьи из
-              выпадающего списка. Доступен встроенный поиск.
-            </p>
-            <p>
-              <strong>Расположение ссылки:</strong> если ссылка будет находиться
-              в выноске, выберите первый вариант, если в тексте статьи, то
-              второй.
-            </p>
-            <p>
-              <strong>Нестандартный продукт:</strong> если продуктовая ссылка
-              начинается не с www.tinkoff.ru, то поставьте галочку Нестандартный
-              продукт и выберите название продукта из выпадающего списка.
-            </p>
-            <p>2. Нажмите кнопку Сгенерировать ссылку</p>
-            <p>3. Скопируйте готовую ссылку из поля Результат</p>
+            <p>Чтобы сгенерировать UTM-метку для ссылки, сделайте следующее:</p>
+            <ol class="hint__list">
+              <li>
+                Вставьте ссылку на продукт Тинькофф в поле Ссылка на продукт.
+                Например, http://www.tinkoff.ru/business/название_продукта
+              </li>
+              <li>
+                Добавьте во второе поле ссылку на статью или слаг — именно из
+                этой статьи будет ссылка на продукт. Например,
+                https://secrets.tinkoff.ru/lichnyj-opyt/kak-sozdat-soobshchestvo/,
+                либо только последнюю часть адреса -- слаг
+                (kak-sozdat-soobshchestvo).
+              </li>
+              <li>Выберите рубрику статьи. Например, Личный опыт.</li>
+              <li>
+                Расположение ссылки: если ссылка на продукт будет находиться на
+                полях (выноске), то доступен вариант В выноске, если просто в
+                тексте — выберите В тексте.
+              </li>
+              <li>
+                Если заполнено все корректно, нажмите Сгенерировать ссылку.
+              </li>
+              <li>
+                Если нужно сделать другую ссылку, очистите поля с помощью кнопки
+                Очистить форму.
+              </li>
+            </ol>
           </div>
         </div>
       </div>
