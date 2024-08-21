@@ -108,7 +108,7 @@ function handleFormSubmit(event) {
 
     data['utm-type'] = form.querySelector('input[type=radio]:checked').value;
 
-    if (data.link.includes('www.tinkoff')) {
+    if (data.link.includes('www.tbank')) {
       data.product = replaceHyphen(getSlug(data.link));
     } else {
       data.product = replaceHyphen(getProductName(data.link));
