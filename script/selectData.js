@@ -15,6 +15,7 @@ const categories = [
     { name: 'Безопасность бизнеса', value: 'bezopasnost-biznesa' },
     { name: 'Бизнес с нуля', value: 'biznes-s-nulya' },
     { name: 'Бизнес-ланч', value: 'biznes-lanch' },
+    { name: 'Бизнес-планы', value: 'biznes-plan' },
     { name: 'Блоги компаний', value: 'blogi-kompanij' },
     { name: 'Бухгалтерия', value: 'buhgalteriya' },
     { name: 'Вакансии', value: 'vakansii' },
